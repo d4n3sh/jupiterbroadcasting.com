@@ -1,0 +1,48 @@
+name: E2E Tests
+
+on:
+
+  pull_request:
+  push:
+    branches:
+      - main
+      - develop
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # using docker-compose, so we can re-use local Dockerfiles
+      - name: starting up containers
+        working-directory: ./test/
+        env:
+          # https://stackoverflow.com/a/52192327
+          DOCKER_BUILDKIT: 1
+          # https://stackoverflow.com/a/69500575
+          BUILDKIT_PROGRESS: plain
+        run: docker-compose up -d --build
+
+      - name: Run your tests
+        working-directory: ./test/
+        # https://github.com/actions/runner/issues/241#issuecomment-577360161
+        run: script -e -c "docker-compose exec testing pytest --base-url http://jb-com --junitxml report.xml"
+
+      - name: Save screenshots
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: screenshots/
+
+      - name: Publish Test Report
+        uses: dorny/test-reporter@v1
+        # TODO: potential solution in the future: https://stackoverflow.com/a/70448851
+        if: always() && github.event_name != 'pull_request'
+        with:
+          name: E2E Tests
+          path: './report.xml'
+          reporter: java-junit

@@ -17,7 +17,7 @@
   {{ end }}
   <section class="{{ $lastUrlElement }}-list mb-5">
     <div class="container">
-       <div class="columns is-multiline">
+      <div class="columns is-multiline">
         {{ $currentPeople := .Paginate (where $peoplePages "Params.username" "in" $currentPeople) }}
         {{ range $currentPeople.Pages }}
           <div class="column is-6 is-4-fullhd is-4-desktop is-12-mobile"  style="display: flex;">
@@ -31,17 +31,15 @@
     </div>
   </section>
 {{ else }}
-<div class="container">
+<div class="container p-4">
   <h1 class="title">{{.Title}}</h1>
 </div>
-<div class="container">
+<div class="container p-4">
   <div class="columns">
     {{ if isset .Params "hosts" }}
       <div class="column is-half">
         {{.Content}}
-        {{with .Params.links}}
-            {{ partial "show/links.html" . }}
-        {{end}}
+        {{ partial "show/links.html" . }}
       </div>
       <div class="column is-half">
         <h2 class="subtitle has-text-centered-mobile">Your Hosts</h2>
@@ -63,14 +61,13 @@
 </div>
 
 <section class="section episode-list">
-  <div class="container">
-     <div class="columns is-multiline">
-
-        {{ range where (where .Pages "Kind" "section") "Params.active" true }}
-          <div class="column is-6 is-4-fullhd is-4-desktop is-12-mobile"  style="display: flex;">
-              {{ partial "episode/show.html" . }}
-          </div>
-        {{ end }}
+  <div class="container p-4">
+    <div class="columns is-multiline">
+      {{ range where (where .Pages "Kind" "section") "Params.active" true }}
+        <div class="column is-6 is-4-fullhd is-4-desktop is-12-mobile"  style="display: flex;">
+          {{ partial "episode/show.html" . }}
+        </div>
+      {{ end }}
 
         {{ $episode_paginator := .Paginate (where .Pages "Type" "episode") }}
         {{ range $episode_paginator.Pages }}
@@ -80,7 +77,7 @@
         {{ end }}
       </div>
     </div>
-    <div class="container">
+    <div class="container p-4">
           {{ partial "helper/pagination.html" . }}
     </div>
 </section>
