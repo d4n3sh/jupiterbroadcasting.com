@@ -1,12 +1,12 @@
 ---
 avatar: /images/people/wendell.jpg
 avatar_small: /images/people/wendell_small.jpg
-bio: Technology and Computing are what it is all about.
-homepage: http://youtube.com/level1techs
+bio: null
+homepage: null
 instagram: null
 linkedin: null
 title: Wendell Wilson
-twitter: https://twitter.com/tekwendell
+twitter: null
 type: guest
 username: wendell
 youtube: null

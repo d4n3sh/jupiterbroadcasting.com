@@ -1,13 +1,12 @@
 ---
 avatar: /images/people/dusty.jpg
 avatar_small: /images/people/dusty_small.jpg
-bio: Linux and open source enthusiast. Hacking away in upstream communities with a
-  focus on container tools and Project Atomic. Married to
-homepage: http://dustymabe.com
+bio: null
+homepage: null
 instagram: null
 linkedin: null
 title: Dusty Mabe
-twitter: https://twitter.com/dustymabe
+twitter: null
 type: guest
 username: dusty
 youtube: null
