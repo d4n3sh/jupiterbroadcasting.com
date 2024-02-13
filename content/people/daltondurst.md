@@ -1,8 +1,8 @@
 ---
 avatar: /images/people/daltondurst.jpg
 avatar_small: /images/people/daltondurst_small.jpg
-bio: null
-homepage: null
+bio: Development Manager at UBports
+homepage: https://ubports.com/
 instagram: null
 linkedin: null
 title: Dalton Durst

@@ -1,7 +1,7 @@
 ---
 avatar: /images/people/corry.jpg
 avatar_small: /images/people/corry_small.jpg
-bio: null
+bio: ''
 homepage: null
 instagram: null
 linkedin: null
